@@ -4,6 +4,22 @@ Find the associated system description paper here [NOTE: publication will be lin
 
 The system employs a three-step pipeline to retrieve relevant arguments given a query text and a queried socio-cultural attribute.
 
+## Data for reproducing this work
+To reproduce our work, download the respective dataset cycle from [this repository](https://blubberli.github.io/perspective-argument-retrieval.github.io/index.html).
+Per dataset cycle, it should have the following structure:
+- `dataset_cycle_n/`
+    - `baseline_queries/`
+        - `train.jsonl`
+        - `val.jsonl`
+        - `test.jsonl`
+    - `perspective_queries/`
+        - `train.jsonl`
+        - `val.jsonl`
+        - `test.jsonl`
+    - `corpus.jsonl`
+
+Given this structure, the path `dataset_cycle_n/` can be used as data path in our implementation to load corpus and queries from.
+
 ## Repository structure & reproduction
 Find implemented functionality of SBERT-based and tf-idf-based rankers in [`src/models/rankers.py`](src/models/rankers.py).\
 Find a script for generating arguments using quantized Mistral-type models in [`src/models/prompt_llm.py`](src/models/prompt_llm.py).
@@ -16,8 +32,10 @@ Find a script for generating arguments using quantized Mistral-type models in [`
 - [`classifier_relevance`](src/notebooks/classifier_relevance.ipynb): RF classifier training.
 - [`generated_test`](src/notebooks/generated_test.ipynb): Results for re-ranking with LLM-generated arguments.
 - [`clustering`](src/notebooks/clustering.ipynb): Clustering analysis.
-- [`style_OLS_analysis`](src/notebooks/style_OLS_analysis.ipynb): OLS analysis of stylistic features.
+- [`style_OLS_analysis`](src/notebooks/ols-prep-cycle1.ipynb): OLS analysis of stylistic features.
 - [`overview`](src/notebooks/overview.ipynb): Data exploration.
+
+[`data/corpus_de_ols_1_nodummy_nomv.csv`](data/corpus_de_ols_1_nodummy_nomv.csv): Data for reproducing the OLS regression analysis.
 
 ## Citation
 NOTE: will be added upon publication
