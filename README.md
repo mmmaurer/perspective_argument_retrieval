@@ -32,7 +32,8 @@ Find a script for generating arguments using quantized Mistral-type models in [`
 - [`classifier_relevance`](src/notebooks/classifier_relevance.ipynb): RF classifier training.
 - [`generated_test`](src/notebooks/generated_test.ipynb): Results for re-ranking with LLM-generated arguments.
 - [`clustering`](src/notebooks/clustering.ipynb): Clustering analysis.
-- [`lm-prep-cycle1`](src/notebooks/lm-prep-cycle1.ipynb): Regression analysis of stylistic features.
+- [`logistic_regression.Rmd`](src/notebooks/logistic_regression.Rmd): R-Markdown notebook for the regression analysis of stylistic features. Find the results [here](src/notebooks/logistic_regression.html).
+- [`lm-prep-cycle1`](src/notebooks/lm-prep-cycle1.ipynb): Preparation for the regression analysis of stylistic features.
 - [`overview`](src/notebooks/overview.ipynb): Data exploration.
 
 [`data/corpus_de_lm_1_nodummy_nomv.csv`](data/corpus_de_lm_1_nodummy_nomv.csv): Data for reproducing the OLS regression analysis.

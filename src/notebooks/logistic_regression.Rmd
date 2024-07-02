@@ -1,0 +1,85 @@
+---
+title: "linear_regression"
+author: "Julia Romberg"
+date: "2024-07-02"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE)
+```
+```{r, results='hide'}
+library(vroom)
+library(tidyverse)
+library(MASS)
+library(car)
+```
+
+Load the dataset that contains the set of independent variables (IV: 
+socio-cultural information) and the set of dependent variables (DV: stylistic 
+features). The dataset was prepared using the "lm-prep-cycle1.ipynb" file.
+
+```{r}
+data <- vroom("corpus_de_lm_1_nondummy_nomv.csv")
+```
+
+Choose meaningful reference categories to make interpretation of results easier.
+
+```{r}
+data$civil_status <- relevel(factor(data$civil_status), "Ledig")
+data$denomination <- relevel(factor(data$denomination), "Konfessionslos")
+data$education <- relevel(factor(data$education), "Universität")
+data$rile <- relevel(factor(data$rile), "Links")
+data$galtan <- relevel(factor(data$galtan), "Konservativ")
+```
+
+DV
+
+```{r}
+dv_surf <- c('FleschReadingEase', 'GunningFogIndex', 'characters_per_word',
+             'words_per_sentence', 'type_token_ratio', 'long_words', 
+             'complex_words')
+dv_synt <- c('ADJ', 'ADP', 'ADV', 'AUX', 'CCONJ', 'DET', 'NOUN', 'NUM', 
+             'PART', 'PRON', 'PROPN', 'PUNCT', 'SCONJ', 'VERB', 'X', 
+             'Entities', 'pres_tense', 'imperative', 'first_person') # 'INTJ', 'SYM'
+```
+
+Run linear regression with stepwise variable selection: surface features
+
+```{r}
+for (i in dv_surf) {
+  print(i)
+  null_model <- lm(as.formula(paste(paste(i, "~"), "1")), data = data)
+  # build model including interactions between variables
+  aic_model <- stepAIC(null_model,
+                       scope = list(lower = ~ 1, 
+                                    upper = ~ (gender + age + residence + 
+                                                 civil_status + denomination + 
+                                                 education + rile + galtan)^2),
+                       direction = "forward")
+  # show outcome
+  print(summary(aic_model))
+  # check VIF for model
+  print(vif(aic_model, type = 'predictor'))
+}
+```
+
+Run linear regression with stepwise variable selection: syntactic features
+
+```{r}
+for (i in dv_synt) {
+  print(i)
+  null_model <- lm(as.formula(paste(paste(i, "~"), "1")), data = data)
+  # build model including interactions between variables
+  aic_model <- stepAIC(null_model,
+                       scope = list(lower = ~ 1, 
+                                    upper = ~ (gender + age + residence + 
+                                                 civil_status + denomination + 
+                                                 education + rile + galtan)^2),
+                       direction = "forward")
+  # show outcome
+  print(summary(aic_model))
+  # check VIF for model
+  print(vif(aic_model, type = 'predictor'))
+}
+```
