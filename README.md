@@ -18,7 +18,7 @@ Per dataset cycle, it should have the following structure:
         - `test.jsonl`
     - `corpus.jsonl`
 
-Given this structure, the path `dataset_cycle_n/` can be used as data path in our implementation to load corpus and queries from.
+Given this structure, the path `dataset_cycle_n/` can then be used as data path in our implementation to load the corpus and queries from.
 
 ## Repository structure & reproduction
 Find implemented functionality of SBERT-based and tf-idf-based rankers in [`src/models/rankers.py`](src/models/rankers.py).\
@@ -32,10 +32,10 @@ Find a script for generating arguments using quantized Mistral-type models in [`
 - [`classifier_relevance`](src/notebooks/classifier_relevance.ipynb): RF classifier training.
 - [`generated_test`](src/notebooks/generated_test.ipynb): Results for re-ranking with LLM-generated arguments.
 - [`clustering`](src/notebooks/clustering.ipynb): Clustering analysis.
-- [`style_OLS_analysis`](src/notebooks/ols-prep-cycle1.ipynb): OLS analysis of stylistic features.
+- [`lm-prep-cycle1`](src/notebooks/lm-prep-cycle1.ipynb): Regression analysis of stylistic features.
 - [`overview`](src/notebooks/overview.ipynb): Data exploration.
 
-[`data/corpus_de_ols_1_nodummy_nomv.csv`](data/corpus_de_ols_1_nodummy_nomv.csv): Data for reproducing the OLS regression analysis.
+[`data/corpus_de_lm_1_nodummy_nomv.csv`](data/corpus_de_lm_1_nodummy_nomv.csv): Data for reproducing the OLS regression analysis.
 
 ## Citation
 NOTE: will be added upon publication
