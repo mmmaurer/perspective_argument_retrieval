@@ -1,6 +1,6 @@
 # Repository for GESIS-DSM at The Perspective Argument Retrieval Shared Task 2024:
 This repository contains the code for the [perspective argument retrieval shared task](https://blubberli.github.io/perspective-argument-retrieval.github.io/index.html) contribution from the GESIS data science methods team.
-Find the associated system description paper here [NOTE: publication will be linked as soon as it is available].
+Find the associated system description paper [here](https://aclanthology.org/2024.argmining-1.18/).
 
 The system employs a three-step pipeline to retrieve relevant arguments given a query text and a queried socio-cultural attribute.
 
@@ -38,5 +38,21 @@ Find a script for generating arguments using quantized Mistral-type models in [`
 
 [`data/corpus_de_lm_1_nodummy_nomv.csv`](data/corpus_de_lm_1_nodummy_nomv.csv): Data for reproducing the OLS regression analysis.
 
-## Citation
-NOTE: will be added upon publication
+## Reference
+```
+@inproceedings{maurer-etal-2024-gesis,
+    title = "{GESIS}-{DSM} at {P}erpective{A}rg2024: A Matter of Style? Socio-Cultural Differences in Argumentation",
+    author = "Maurer, Maximilian  and
+      Romberg, Julia  and
+      Reuver, Myrthe  and
+      Weldekiros, Negash  and
+      Lapesa, Gabriella",
+      Skitalinskaya, Gabriella",
+    booktitle = "Proceedings of the 11th Workshop on Argument Mining (ArgMining 2024)",
+    month = aug,
+    year = "2024",
+    address = "Bangkok, Thailand",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.argmining-1.18",
+    pages = "169--181"
+```
