@@ -55,4 +55,5 @@ Find a script for generating arguments using quantized Mistral-type models in [`
     publisher = "Association for Computational Linguistics",
     url = "https://aclanthology.org/2024.argmining-1.18",
     pages = "169--181"
+}
 ```
