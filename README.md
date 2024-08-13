@@ -47,7 +47,6 @@ Find a script for generating arguments using quantized Mistral-type models in [`
       Reuver, Myrthe  and
       Weldekiros, Negash  and
       Lapesa, Gabriella",
-      Skitalinskaya, Gabriella",
     booktitle = "Proceedings of the 11th Workshop on Argument Mining (ArgMining 2024)",
     month = aug,
     year = "2024",
